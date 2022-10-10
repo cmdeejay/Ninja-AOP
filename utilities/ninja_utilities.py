@@ -13,7 +13,7 @@ class Utilities:
         self.search_url = None
 
     def login(self):
-        with open('restrict/credentials.json', 'r') as fp:
+        with open('restrict/bo_credentials.json', 'r') as fp:
             login_data = json.load(fp)
         self.s.post(self.login_url, data=login_data)
         return self.s
