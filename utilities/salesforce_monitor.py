@@ -9,14 +9,13 @@ import pyttsx3
 import io
 import winsound
 import threading
-from utilities.id_classification import classify
+from utilities.ninja_functions import classify
 import sys
 from restrict.urls import Urls
 from restrict.sf_credentials import SfCredentials
-from tkinter import END
 
 
-def monitor_final(log_box_entry):
+def monitor_final():
     sys.setrecursionlimit(300000)
     engine = pyttsx3.init()
     engine.setProperty('rate', 150)
@@ -26,13 +25,11 @@ def monitor_final(log_box_entry):
     def monitor():
         engine.say("monitoring...")
         engine.runAndWait()
-        log_box_entry.insert(END, f'Monitoring... {datetime.now}')
-        log_box_entry.insert(END, '\n')
-        # print('Monitoring...', datetime.now())
+        print('Monitoring...', datetime.now())
 
         def login_to_sf():
             driver.get(Urls.lighting_to_classic_url)
-            time.sleep(10)
+            time.sleep(8)
             driver.get(Urls.salesforce_report_url)
             try:
                 username = driver.find_element(By.ID, "username")
@@ -57,12 +54,11 @@ def monitor_final(log_box_entry):
                 return df
 
         def looping(df, counter):
-            log_box_entry.insert(END, counter)
-            log_box_entry.insert(END, '\n')
             while True:
                 counter += 1
+                print(counter)
                 driver.refresh()
-                time.sleep(5)
+                time.sleep(120)
                 text1 = driver.find_element(By.ID, 'fchArea').text
                 table1 = io.StringIO(text1)
                 df1 = pd.read_csv(table1, sep=' ', header=None).iloc[1:-2, :-1]
@@ -75,8 +71,7 @@ def monitor_final(log_box_entry):
                     engine.say("New account detected! Checking Documents...")
                     engine.runAndWait()
                     df2 = pd.concat([df1, df]).drop_duplicates(keep=False)
-                    log_box_entry.insert(END, df2)
-                    log_box_entry.insert(END, '\n')
+                    print(df2)
                     accounts = df2.iloc[:, :1].values.tolist()
                     result = threading.Thread(target=classify(accounts)).start()
                     df = df1
@@ -93,7 +88,7 @@ def monitor_final(log_box_entry):
         driver_options.add_experimental_option('excludeSwitches', ['enable-logging'])
         driver = webdriver.Chrome(service=ser, options=driver_options)
         driver.minimize_window()
-        # monitor()
+        monitor()
     except (exceptions.WebDriverException, exceptions.NoSuchElementException, AttributeError) as error:
         print(error)
-        return monitor_final(log_box_entry)
+        return monitor_final()

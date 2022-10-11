@@ -37,7 +37,7 @@ def addTask(variable, trans_btn, del_btn, run_btn, id_btn, eye_btn, email_entry,
         action_run_button = tk.Button(root, bg='#202023', fg='white', image=run_btn, border=0, activebackground='#202023', activeforeground='white',
                                       command=lambda: threading.Thread(target="", args=(variable, email_label.cget("text"), login_session, first_name_label.cget("text"), last_name_label.cget('text'), client_id_label.cget("text"), status_label)).start())
         action_visit_button = tk.Button(root, bg='#202023', fg='white', image=eye_btn, border=0, activebackground='#202023', activeforeground='white',
-                                        command=lambda: threading.Thread(target="", args=(client_id_label.cget("text"), email_label.cget("text"))).start())
+                                        command=lambda: threading.Thread(target=NinjaFunction.bo_check).start())
         action_show_id_button = tk.Button(root, bg='#202023', fg='white', image=id_btn, border=0, activebackground='#202023', activeforeground='white',
                                           command=lambda: threading.Thread(target=NinjaFunction.idDocuments).start())
         action_trans_id_button = tk.Button(root, bg='#202023', fg='white', image=trans_btn, border=0, activebackground='#202023', activeforeground='white',

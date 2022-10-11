@@ -1,4 +1,5 @@
 import requests
+from urllib.request import urlopen
 from restrict.urls import Urls
 import json
 from bs4 import BeautifulSoup
@@ -33,5 +34,3 @@ class Utilities:
         soup = BeautifulSoup(response.content, "html5lib")
         email = soup.find('td', attrs={'class': 'sonata-ba-list-field sonata-ba-list-field-orm_one_to_one'}).find('a').text
         return email
-
-

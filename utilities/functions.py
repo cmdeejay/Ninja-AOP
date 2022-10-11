@@ -9,6 +9,10 @@ from bs4 import BeautifulSoup
 import time
 import urllib
 from restrict.urls import Urls
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+import json
 
 
 class NinjaFunctions:
@@ -79,3 +83,19 @@ class NinjaFunctions:
         fillpdfs.write_fillable_pdf(format_path, output_path, form)
         os.startfile(output_path)
 
+    def bo_check(self):
+        ser = Service('driver/chromedriver.exe')
+        normal_driver_option = webdriver.ChromeOptions()
+        normal_driver_option.add_experimental_option("detach", True)
+        normal_driver_option.add_experimental_option('excludeSwitches', ['enable-logging'])
+        driver = webdriver.Chrome(service=ser, options=normal_driver_option)
+        driver.maximize_window()
+        bo_url = Urls.profile_url + self.client_id + "/show"
+        driver.get(bo_url)
+        with open('restrict/bo_credentials.json', 'r') as fp:
+            login_data = json.load(fp)
+        username = driver.find_element(By.NAME, "admin_username")
+        username.send_keys(login_data["admin_username"])
+        password = driver.find_element(By.NAME, "admin_password")
+        password.send_keys(login_data["admin_password"])
+        driver.find_element(By.CLASS_NAME, "col-xs-4").click()
