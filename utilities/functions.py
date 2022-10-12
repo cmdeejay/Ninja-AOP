@@ -1,10 +1,9 @@
-from tkinter import messagebox
+from tkinter import messagebox, END, ttk
 from google_trans_new import google_translator
 from utilities.Translator import Tesseract_Translator
 from utilities.ninja_utilities import Utilities
 import os
 import tkinter
-from tkinter import ttk
 from fillpdf import fillpdfs
 from bs4 import BeautifulSoup
 import time
@@ -653,7 +652,7 @@ class NinjaFunctions:
             tkinter.messagebox.showerror(title='Warning', message='Please select the country!')
 
 
-def delete_task(empty_order_label, client_id_label, email_entry,first_name_label, action_trans_id_button, last_name_label, action_run_button, action_show_id_button, action_vist_bo_button, action_del_button, status_label):
+def delete_task(empty_order_label, client_id_label, email_entry, first_name_label, action_trans_id_button, last_name_label, action_run_button, action_show_id_button, action_vist_bo_button, action_del_button, status_label):
     empty_order_label.place_forget()
     client_id_label.place_forget()
     email_entry.place_forget()
@@ -712,3 +711,20 @@ def add_task(variable, trans_btn, del_btn, run_btn, id_btn, eye_btn, email_entry
         action_trans_id_button.place(x=930, y=249 + 25 * (cou - 1))
         action_del_button.place(x=990, y=249 + 25 * (cou - 1))
         task_counter = new_task_counter
+
+
+def show_client_id(trading_login_entry, client_id_entry, email_entry):
+    email_entry.delete(0, END)
+    client_id_entry.delete(0, END)
+    trading_login = trading_login_entry.get()
+    if trading_login == '':
+        messagebox.showerror(title='Warning', message='Please recheck the login!')
+    else:
+        try:
+            Uti = Utilities()
+            client_id = Uti.scrapId(trading_login)
+            client_email = Uti.scrapEmail(trading_login)
+            email_entry.insert(END, client_email)
+            client_id_entry.insert(END, client_id)
+        except AttributeError:
+            messagebox.showerror(title='Warning', message='Please recheck the login!')

@@ -2,8 +2,7 @@ from tkinter import Tk, ttk, StringVar, Entry, PhotoImage, Button, Radiobutton
 from tkinter.scrolledtext import ScrolledText
 import threading
 from utilities.ninja_utilities import Utilities
-from utilities.functions import add_task
-from utilities.show_id import showClientId
+from utilities.functions import add_task, show_client_id
 from utilities.salesforce_monitor import monitor_final
 
 
@@ -65,7 +64,7 @@ class GUI:
         trans_btn = PhotoImage(file='images/trans.png')
 
         # Button configure
-        Button(root, bg='#202023', fg='#b5cea8', text="SHOW", activebackground='#202023', activeforeground='#b5cea8', font=('Arial', 9, 'bold'), command=lambda: threading.Thread(target=showClientId, args=(trading_login_entry, client_id_entry, email_entry)).start()).place(x=355, y=55, height=30, width=80)
+        Button(root, bg='#202023', fg='#b5cea8', text="SHOW", activebackground='#202023', activeforeground='#b5cea8', font=('Arial', 9, 'bold'), command=lambda: threading.Thread(target=show_client_id, args=(trading_login_entry, client_id_entry, email_entry)).start()).place(x=355, y=55, height=30, width=80)
         Button(root, bg='#202023', fg='#b5cea8', text="ADD TASK", activebackground='#202023', activeforeground='#b5cea8', font=('Arial', 9, 'bold'), command=lambda: add_task(variable, trans_btn, del_btn, run_btn, id_btn, eye_btn, email_entry, client_id_entry, first_name_entry, last_name_entry, root, login_session)).place(x=270, y=95, height=30, width=80)
         Button(root, bg='#202023', fg='#b5cea8', text="MONITOR", activebackground='#202023', activeforeground='#b5cea8', font=('Arial', 9, 'bold'), command=lambda: threading.Thread(target=monitor_final).start()).place(x=355, y=95, height=30, width=80)
         Radiobutton(root, bg='#202023', fg='#b5cea8', relief='flat', activebackground='#202023', activeforeground='#b5cea8', text='China', value='China', font=('Arial', 10, 'bold'), variable=variable).place(x=260, y=140)
