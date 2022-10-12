@@ -1,7 +1,7 @@
 from tkinter import ttk
 import tkinter as tk
 import threading
-from utilities.functions import NinjaFunctions
+from utilities.functions import NinjaFunctions, delete_task
 
 task_counter = 0
 
@@ -32,10 +32,10 @@ def addTask(variable, trans_btn, del_btn, run_btn, id_btn, eye_btn, email_entry,
         status_label = ttk.Label(root, text='', style='White_small.TLabel')
         status_label.place(x=663, y=250 + 25 * (cou - 1))
 
-        NinjaFunction = NinjaFunctions(email, client_id, first_name, last_name, login_session, status_label)
+        NinjaFunction = NinjaFunctions(email, client_id, first_name, last_name, login_session, status_label, variable)
 
         action_run_button = tk.Button(root, bg='#202023', fg='white', image=run_btn, border=0, activebackground='#202023', activeforeground='white',
-                                      command=lambda: threading.Thread(target="", args=(variable, email_label.cget("text"), login_session, first_name_label.cget("text"), last_name_label.cget('text'), client_id_label.cget("text"), status_label)).start())
+                                      command=lambda: threading.Thread(target=NinjaFunction.radiobuttonOption).start())
         action_visit_button = tk.Button(root, bg='#202023', fg='white', image=eye_btn, border=0, activebackground='#202023', activeforeground='white',
                                         command=lambda: threading.Thread(target=NinjaFunction.bo_check).start())
         action_show_id_button = tk.Button(root, bg='#202023', fg='white', image=id_btn, border=0, activebackground='#202023', activeforeground='white',
@@ -43,7 +43,7 @@ def addTask(variable, trans_btn, del_btn, run_btn, id_btn, eye_btn, email_entry,
         action_trans_id_button = tk.Button(root, bg='#202023', fg='white', image=trans_btn, border=0, activebackground='#202023', activeforeground='white',
                                            command=lambda: threading.Thread(target=NinjaFunction.idTranslation).start())
         action_del_button = tk.Button(root, bg='#202023', fg='white', image=del_btn, border=0, activebackground='#202023', activeforeground='white',
-                                      command=lambda: threading.Thread(target="", args=(empty_order_label, client_id_label, email_label, first_name_label, action_trans_id_button, last_name_label, action_run_button, action_show_id_button, action_visit_button, action_del_button, status_label)).start())
+                                      command=lambda: threading.Thread(target=delete_task, args=(empty_order_label, client_id_label, email_label, first_name_label, action_trans_id_button, last_name_label, action_run_button, action_show_id_button, action_visit_button, action_del_button, status_label)).start())
 
         action_run_button.place(x=870, y=250 + 25 * (cou - 1))
         action_visit_button.place(x=957, y=249 + 25 * (cou - 1))
