@@ -20,7 +20,7 @@ class Canvas(customtkinter.CTkFrame):
                                                              text_font=("Open SANS", -10),
                                                              hover_color="#181c24",
                                                              fg_color="#181c24")
-        self._terms_and_conditions.place(x=15, y=520)
+        self._terms_and_conditions.place(x=15, y=530)
 
         self._FAQ = customtkinter.CTkButton(master=self,
                                             text="FAQ",
@@ -29,7 +29,7 @@ class Canvas(customtkinter.CTkFrame):
                                             text_font=("Open SANS", -10),
                                             hover_color="#181c24",
                                             fg_color="#181c24")
-        self._FAQ.place(x=140, y=520)
+        self._FAQ.place(x=140, y=530)
 
         self._year = customtkinter.CTkButton(master=self,
                                              text="Copyright @Min Chen 2022",
@@ -38,4 +38,4 @@ class Canvas(customtkinter.CTkFrame):
                                              text_font=("Open SANS", -10),
                                              hover_color="#181c24",
                                              fg_color="#181c24")
-        self._year.place(x=675, y=520)
+        self._year.place(x=675, y=530)
