@@ -34,7 +34,7 @@
     "dropdown_color": ["gray90", "gray20"],
     "dropdown_hover": ["gray75", "gray28"],
     "dropdown_text": ["gray10", "#DCE4EE"],
-    "scrollbar_button": ["gray55", "gray41"],
+    "scrollbar_button": ["gray10", "gray10"],
     "scrollbar_button_hover": ["gray40", "gray53"]
   },
   "text": {
@@ -74,6 +74,6 @@
     "switch_button_corner_radius": 1000,
     "switch_button_length": 0,
     "scrollbar_corner_radius": 1000,
-    "scrollbar_border_spacing": 4
+    "scrollbar_border_spacing": 1
   }
 }

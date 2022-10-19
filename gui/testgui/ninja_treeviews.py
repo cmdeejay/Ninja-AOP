@@ -1,5 +1,4 @@
 from tkinter import ttk
-from ninja_buttons import RunButton
 
 
 class TaskListHeader(ttk.Treeview):
@@ -38,6 +37,7 @@ class TaskList(ttk.Treeview):
         super().__init__(*args,
                          columns=("First Name", "Last Name", "Email Address", "Status", "Actions"),
                          height=30,
+                         selectmode='browse',
                          show="tree",
                          **kwargs)
 
@@ -50,9 +50,3 @@ class TaskList(ttk.Treeview):
         self.column(f"#3", minwidth=156, width=156, anchor="center")
         self.column(f"#4", minwidth=136, width=136, anchor="center")
         self.column(f"#5", minwidth=191, width=191, anchor="center")
-
-        self.insert('', 'end', text='01', values=('Charmy', 'Chen', 'Charmy.chen@gmail.com', 'ID is approved',), tags='odd')
-        self.insert('', 'end', text='02', values=('Charmy', 'Chen', 'Charmy.chen@gmail.com', 'ID is approved'), tags='even')
-        self.insert('', 'end', text='03', values=('Charmy', 'Chen', 'Charmy.chen@gmail.com', 'ID is approved'), tags='odd')
-        self.insert('', 'end', text='04', values=('Charmy', 'Chen', 'Charmy.chen@gmail.com', 'ID is approved'), tags='even')
-        self.insert('', 'end', text='05', values=('Charmy', 'Chen', 'Charmy.chen@gmail.com', 'ID is approved'), tags='odd')
