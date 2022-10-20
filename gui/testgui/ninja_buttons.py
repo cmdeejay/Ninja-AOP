@@ -21,7 +21,7 @@ class DashboardButton(customtkinter.CTkButton):
         dashboard_image_tk = ImageTk.PhotoImage(dashboard_image)
         super().__init__(*args,
                          text="Dashboard",
-                         text_color="white",
+                         text_color="#dfe8ee",
                          image=dashboard_image_tk,
                          text_font=("Open SANS", -14, "bold"),
                          hover=False,
@@ -34,7 +34,7 @@ class NewTaskButton(customtkinter.CTkButton):
         new_task_image_tk = ImageTk.PhotoImage(new_task_image)
         super().__init__(*args,
                          text="New Task",
-                         text_color="white",
+                         text_color="#dfe8ee",
                          image=new_task_image_tk,
                          text_font=("Open SANS", -14, "bold"),
                          hover=False,
@@ -47,7 +47,7 @@ class HistoryButton(customtkinter.CTkButton):
         history_image_tk = ImageTk.PhotoImage(history_image)
         super().__init__(*args,
                          text="History",
-                         text_color="white",
+                         text_color="#dfe8ee",
                          image=history_image_tk,
                          text_font=("Open SANS", -14, "bold"),
                          hover=False,
@@ -58,7 +58,7 @@ class TermsAndConditions(customtkinter.CTkButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,
                          text="Terms & Conditions",
-                         text_color="white",
+                         text_color="#dfe8ee",
                          text_font=("Open SANS", -10),
                          hover_color="#181c24",
                          fg_color="#181c24",
@@ -70,7 +70,7 @@ class FAQ(customtkinter.CTkButton):
         super().__init__(*args,
                          text="FAQ",
                          width=20,
-                         text_color="white",
+                         text_color="#dfe8ee",
                          text_font=("Open SANS", -10),
                          hover_color="#181c24",
                          fg_color="#181c24",
@@ -82,7 +82,7 @@ class CopyRight(customtkinter.CTkButton):
         super().__init__(*args,
                          text="Copyright @Min Chen 2022",
                          width=20,
-                         text_color="white",
+                         text_color="#dfe8ee",
                          text_font=("Open SANS", -10),
                          hover_color="#181c24",
                          fg_color="#181c24",
@@ -122,7 +122,7 @@ class StartAll(customtkinter.CTkButton):
                          text_color="white",
                          height=10,
                          width=10,
-                         corner_radius=37,
+                         corner_radius=40,
                          fg_color="#a553fb",  # purple
                          text_font=("Open SANS", -16, "bold"),
                          **kwargs)
@@ -135,7 +135,7 @@ class StopAll(customtkinter.CTkButton):
                          text_color="white",
                          height=10,
                          width=10,
-                         corner_radius=37,
+                         corner_radius=40,
                          fg_color="#f4a434",  # purple
                          text_font=("Open SANS", -16, "bold"),
                          **kwargs)
@@ -146,9 +146,9 @@ class StopAll(customtkinter.CTkButton):
 #         run_image_tk = ImageTk.PhotoImage(run_image)
 #         super().__init__(*args,
 #                          bg='#202023',
-#                          fg='white',
+#                          fg='#dfe8ee',
 #                          image=run_image_tk,
 #                          border=0,
 #                          activebackground='#202023',
-#                          activeforeground='white',
+#                          activeforeground='#dfe8ee',
 #                          **kwargs)
