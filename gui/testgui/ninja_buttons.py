@@ -23,6 +23,7 @@ class DashboardButton(customtkinter.CTkButton):
                          text="Dashboard",
                          text_color="white",
                          image=dashboard_image_tk,
+                         text_font=("Open SANS", -14, "bold"),
                          hover=False,
                          **kwargs)
 
@@ -35,6 +36,7 @@ class NewTaskButton(customtkinter.CTkButton):
                          text="New Task",
                          text_color="white",
                          image=new_task_image_tk,
+                         text_font=("Open SANS", -14, "bold"),
                          hover=False,
                          **kwargs)
 
@@ -47,6 +49,7 @@ class HistoryButton(customtkinter.CTkButton):
                          text="History",
                          text_color="white",
                          image=history_image_tk,
+                         text_font=("Open SANS", -14, "bold"),
                          hover=False,
                          **kwargs)
 
@@ -85,6 +88,57 @@ class CopyRight(customtkinter.CTkButton):
                          fg_color="#181c24",
                          **kwargs)
 
+
+class StartSelectedButton(customtkinter.CTkButton):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args,
+                         text="start selected",
+                         text_color="white",
+                         height=10,
+                         width=10,
+                         corner_radius=17,
+                         fg_color="#ff847c",  # pink
+                         text_font=("Open SANS", -16, "bold"),
+                         **kwargs)
+
+
+class StopSelectedButton(customtkinter.CTkButton):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args,
+                         text="stop selected",
+                         text_color="white",
+                         height=10,
+                         width=10,
+                         corner_radius=17,
+                         fg_color="#48cccc",  # blue
+                         text_font=("Open SANS", -16, "bold"),
+                         **kwargs)
+
+
+class StartAll(customtkinter.CTkButton):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args,
+                         text="start all",
+                         text_color="white",
+                         height=10,
+                         width=10,
+                         corner_radius=37,
+                         fg_color="#a553fb",  # purple
+                         text_font=("Open SANS", -16, "bold"),
+                         **kwargs)
+
+
+class StopAll(customtkinter.CTkButton):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args,
+                         text="stop all",
+                         text_color="white",
+                         height=10,
+                         width=10,
+                         corner_radius=37,
+                         fg_color="#f4a434",  # purple
+                         text_font=("Open SANS", -16, "bold"),
+                         **kwargs)
 
 # class RunButton(customtkinter.CTkButton):
 #     def __init__(self, *args, **kwargs):

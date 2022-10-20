@@ -16,7 +16,7 @@ class TaskListHeader(ttk.Treeview):
                                      background="#181c24",
                                      fieldbackground="#282c3c",
                                      rowheight=45,
-                                     font=("Hack NF", 9, "bold"))
+                                     font=("Open SANS", -14, "bold"))
         self._header_style.map(style='Treeview',
                                foreground=[('!selected', "#FFFFFF")],
                                background=[('selected', "#181c24")])

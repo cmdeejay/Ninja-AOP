@@ -19,9 +19,9 @@ class GUI(customtkinter.CTk):
         customtkinter.set_default_color_theme("theme/default_theme.json")
         # variable = StringVar(root)
         # variable.set("Type")
-        # self.resizable(False, False)
+        self.resizable(False, False)
         self['background'] = '#282c3c'
-        # root.iconbitmap(r'images/Ninja.ico')
+        self.iconbitmap(r'images/Ninja.ico')
         self.title("NINJA 2.2.0")
         self._window_width = 1055
         self._window_height = 555
@@ -41,7 +41,7 @@ class GUI(customtkinter.CTk):
         self._dashboard_button.grid(row=1, column=0, padx=30, pady=3, sticky="WW")
 
         self._history_button = HistoryButton(master=self)
-        self._history_button.grid(row=2, column=0, padx=23, pady=3, sticky="WW")
+        self._history_button.grid(row=2, column=0, padx=19, pady=3, sticky="WW")
 
         self._new_task_button = NewTaskButton(master=self)
         self._new_task_button.grid(row=3, column=0, padx=26, pady=3, sticky="WW")
