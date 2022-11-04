@@ -19,7 +19,7 @@ class GUI(customtkinter.CTk):
         customtkinter.set_default_color_theme("theme/default_theme.json")
         # variable = StringVar(root)
         # variable.set("Type")
-        self.resizable(False, False)
+        # self.resizable(False, False)
         self['background'] = '#282c3c'
         self.iconbitmap(r'images/Ninja.ico')
         self.title("NINJA 2.2.0")

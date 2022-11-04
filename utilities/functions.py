@@ -454,7 +454,7 @@ class NinjaFunctions:
         _cotFile = None
         _cotFile_name = None
         try:
-            _cotFile = open(f'{self._Url.os_path}{self._first_name}{self._last_name}_COT.pdf', 'rb')
+            _cotFile = open(f'{self._Url.os_path}{self._email}/{self._first_name}{self._last_name}_COT.pdf', 'rb')
             _cotFile_name = f'{self._first_name}{self._last_name}_COT.pdf'
         except FileNotFoundError:
             tkinter.messagebox.showerror(title='Warning', message='No COT find!')

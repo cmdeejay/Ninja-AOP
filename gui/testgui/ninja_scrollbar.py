@@ -9,4 +9,3 @@ class TreeViewScrollbar(customtkinter.CTkScrollbar):
                          width=8,
                          corner_radius=20,
                          **kwargs)
-

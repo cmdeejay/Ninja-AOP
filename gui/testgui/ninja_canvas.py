@@ -8,7 +8,7 @@ class Canvas(customtkinter.CTkFrame):
         super().__init__(*args,
                          fg_color="#181c24",
                          width=900,
-                         height=600,
+                         height=550,
                          corner_radius=0,
                          **kwargs)
 

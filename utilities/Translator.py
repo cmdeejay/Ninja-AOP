@@ -1,12 +1,12 @@
 from PIL import Image
 import pytesseract
-from google_trans_new import google_translator
+from googletrans import Translator
 import re
 
 
 class Tesseract_Translator:
     def __init__(self):
-        self.Translator = google_translator()
+        self.Translator = Translator()
         pytesseract.pytesseract.tesseract_cmd = "Tesseract-OCR/tesseract.exe"
         self.path_1 = "ID/ID_4.jpg"
         self.path_2 = "ID/ID_3.jpg"
@@ -40,7 +40,7 @@ class Tesseract_Translator:
         if len(self.Address_zh) == 0:
             self.Address_zh = str(re.findall(r'晶(.*?)$', self.id_front_zh)).replace("[", "").replace("]", "")
         try:
-            self.Address_en = str(self.Translator.translate(text=self.Address_zh, lang_src='zh-cn', lang_tgt='en'))
+            self.Address_en = str(self.Translator.translate(text=self.Address_zh, src='zh-cn', dest='en'))
         except TypeError:
             self.Address_en = "Can't recognize it! Please snip the image again! "
 
