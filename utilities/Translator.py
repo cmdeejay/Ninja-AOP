@@ -88,8 +88,7 @@ class Tesseract_Translator:
 
         self.issue_date = self.issue_date.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
         self.expiry_date = self.expiry_date.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
-        self.Address_en = self.Address_en.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
-        self.Address_en = self.Address_en.strip().replace("'", "")
+        self.Address_en = ' '.join(re.findall("text='(.*?)', pronunciation", self.Address_en))
         self.DOB = self.DOB.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
 
         return_data = {

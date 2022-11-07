@@ -28,7 +28,7 @@ class TaskListHeader(ttk.Treeview):
         self.column(f"#2", minwidth=136, width=136, anchor="center")
         self.column(f"#3", minwidth=185, width=156, anchor="center")
         self.column(f"#4", minwidth=136, width=136, anchor="center")
-        self.column(f"#5", minwidth=191, width=191, anchor="center")
+        self.column(f"#5", minwidth=190, width=190, anchor="center")
         self.insert('', 'end', text='ID', values=('First Name', 'Last Name', 'Email', 'Status', 'Actions'))
 
 

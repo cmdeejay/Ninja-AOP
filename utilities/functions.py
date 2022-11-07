@@ -1,5 +1,5 @@
 from tkinter import messagebox, END, ttk
-from google_trans_new import google_translator
+from googletrans import Translator 
 from utilities.Translator import Tesseract_Translator
 from utilities.ninja_utilities import Utilities
 import os
@@ -603,7 +603,7 @@ class NinjaFunctions:
             self._status_label.config(text='No files uploaded...\n')
 
     def idTranslation(self):
-        _Translator = google_translator()
+        _Translator = Translator()
         _Data_Generator = Tesseract_Translator()
         try:
             os.makedirs(self._Url.os_path + self._email)

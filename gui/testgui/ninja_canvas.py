@@ -1,6 +1,7 @@
 import customtkinter
 from tasklist import TaskListFrame
 from ninja_buttons import TermsAndConditions, FAQ, CopyRight, StartSelectedButton, StartAll, StopSelectedButton, StopAll
+from ninja_scrollbar import TreeViewScrollbar
 
 
 class Canvas(customtkinter.CTkFrame):
@@ -12,7 +13,10 @@ class Canvas(customtkinter.CTkFrame):
                          corner_radius=0,
                          **kwargs)
 
-        self._taskbar = TaskListFrame(master=self)
+        self._treeview_scrollbar = TreeViewScrollbar(master=self)
+        self._taskbar = TaskListFrame(master=self, yscrollcommand=self._treeview_scrollbar.set)
+        self._treeview_scrollbar.configure(command=self._taskbar.yview)
+
         self._terms_and_conditions = TermsAndConditions(master=self)
         self._faq = FAQ(master=self)
         self._year = CopyRight(master=self)
