@@ -86,10 +86,7 @@ class Tesseract_Translator:
             self.Address_en = self._translate_id_front_address().replace(self.disallowed_char, "").replace('"', '')
             self.DOB = self._translate_id_front_DOB().replace(char, "").replace('"', '')
 
-        self.issue_date = self.issue_date.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
-        self.expiry_date = self.expiry_date.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
         self.Address_en = ' '.join(re.findall("text='(.*?)', pronunciation", self.Address_en))
-        self.DOB = self.DOB.replace("Translated(src=zh-CN, dest=en, text=", "").replace(", pronunciation=None, extra_data={'translat...)", '')
 
         return_data = {
             'issue_date': self.issue_date,
