@@ -5,7 +5,7 @@ class TaskListHeader(ttk.Treeview):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,
                          columns=("First Name", "Last Name", "Email Address", "Status", "Actions"),
-                         # height=43,
+                         height=1,
                          show="tree",
                          **kwargs)
 
@@ -36,7 +36,7 @@ class TaskList(ttk.Treeview):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,
                          columns=("First Name", "Last Name", "Email Address", "Status", "Actions"),
-                         height=30,
+                         height=8,
                          selectmode='browse',
                          show="tree",
                          **kwargs)

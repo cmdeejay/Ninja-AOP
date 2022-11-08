@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 from ninja_buttons import DashboardButton, NewTaskButton, HistoryButton, Logo
 from ninja_entries import TradingAccountEntry
 from ninja_labels import UserLabel
-from ninja_canvas import Canvas
+from ninja_frames import Canvas
 
 
 class GUI(customtkinter.CTk):
@@ -23,7 +23,7 @@ class GUI(customtkinter.CTk):
         self['background'] = '#282c3c'
         self.iconbitmap(r'images/Ninja.ico')
         self.title("NINJA 2.2.0")
-        self._window_width = 1055
+        self._window_width = 1050
         self._window_height = 555
         self._screen_width = self.winfo_screenwidth()
         self._screen_height = self.winfo_screenheight()
